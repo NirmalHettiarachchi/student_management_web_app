@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function AllStudents() {
   const [students, setStudents] = useState([]);
@@ -34,9 +35,18 @@ function AllStudents() {
           {students.map((student, index) => (
             <tr key={student._id}>
               <th scope="row">{index + 1}</th>
-              <td>{student.name}</td>
+              <td>
+                <Link to={`/${student._id}`}>{student.name}</Link>
+              </td>
               <td>{student.age}</td>
               <td>{student.gender}</td>
+              <td className="vertical-center">
+                <Link to={`/delete/${student._id}`}>
+                  <button type="button" className="btn btn-sm btn-danger">
+                    Delete
+                  </button>
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>
