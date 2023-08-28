@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function AddStudent() {
+function UpdateStudent({ id }) {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
@@ -16,9 +16,9 @@ function AddStudent() {
     };
 
     axios
-      .post("http://localhost:8070/student/add", newStudent)
+      .put(`http://localhost:8070/student/update/${id}`, newStudent)
       .then(() => {
-        alert("Student Added");
+        alert("Student Updated");
         window.location.href = "http://localhost:3000";
       })
       .catch((err) => {
@@ -77,4 +77,4 @@ function AddStudent() {
   );
 }
 
-export default AddStudent;
+export default UpdateStudent;

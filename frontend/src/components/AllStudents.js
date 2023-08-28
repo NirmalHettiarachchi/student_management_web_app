@@ -29,6 +29,7 @@ function AllStudents() {
             <th scope="col">Student Name</th>
             <th scope="col">Student Age</th>
             <th scope="col">Student Gender</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -41,8 +42,26 @@ function AllStudents() {
               <td>{student.age}</td>
               <td>{student.gender}</td>
               <td className="vertical-center">
+                <Link to={`/update/${student._id}`}>
+                  <button type="button" className="btn btn-sm btn-primary">
+                    Update
+                  </button>
+                </Link>
+                <span style={{ margin: "0 5px" }}></span>
                 <Link to={`/delete/${student._id}`}>
-                  <button type="button" className="btn btn-sm btn-danger">
+                  <button
+                    type="button"
+                    className="btn btn-sm btn-danger"
+                    onClick={(e) => {
+                      if (
+                        !window.confirm(
+                          "Are you sure you want to delete this student?"
+                        )
+                      ) {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
                     Delete
                   </button>
                 </Link>

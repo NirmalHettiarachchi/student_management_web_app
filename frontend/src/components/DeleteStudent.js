@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
 function DeleteStudent({ id }) {
-  const [student] = useState([]);
-
   useEffect(() => {
     function deleteStudent() {
       axios
         .delete(`http://localhost:8070/student/delete/${id}`)
+        .then(() => {
+          window.location.href = "http://localhost:3000";
+        })
         .catch((err) => {
           alert(err.message);
         });

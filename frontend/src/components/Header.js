@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" style={{ color: "brown" }}>
+      <div className="navbar-brand" style={{ color: "brown" }}>
         Student-Manager
-      </a>
+      </div>
       <button
         className="navbar-toggler"
         type="button"
@@ -22,13 +22,25 @@ function Header() {
         <ul className="navbar-nav">
           <li className="nav-item active">
             <Link to="/" className="nav-link">
-              Home
+              <button
+                type="button"
+                class="btn btn-outline-dark btn-sm"
+                style={{ width: "100%" }}
+              >
+                Home
+              </button>
               <span className="sr-only">(current)</span>
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/add" className="nav-link">
-              Create Student
+              <button
+                type="button"
+                class="btn btn-outline-success btn-sm"
+                style={{ width: "100%" }}
+              >
+                Create Student
+              </button>
             </Link>
           </li>
         </ul>

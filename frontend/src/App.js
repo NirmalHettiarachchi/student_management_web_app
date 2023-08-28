@@ -10,6 +10,7 @@ import {
   Routes,
   useParams,
 } from "react-router-dom";
+import UpdateStudent from "./components/UpdateStudent";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<AllStudents />} />
           <Route path="/:id" element={<GetStudentWrapper />} />
           <Route path="/delete/:id" element={<DeleteStudentWrapper />} />
+          <Route path="/update/:id" element={<UpdateStudentWrapper />} />
         </Routes>
       </div>
     </Router>
@@ -35,6 +37,11 @@ function GetStudentWrapper() {
 function DeleteStudentWrapper() {
   const { id } = useParams();
   return <DeleteStudent id={id} />;
+}
+
+function UpdateStudentWrapper() {
+  const { id } = useParams();
+  return <UpdateStudent id={id} />;
 }
 
 export default App;
